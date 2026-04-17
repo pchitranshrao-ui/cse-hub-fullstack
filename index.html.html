@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CSE Hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:Arial,sans-serif}
+.gradient{background:linear-gradient(135deg,#2563eb,#7c3aed)}
+</style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navbar -->
+<nav class="gradient text-white p-4 flex justify-between items-center">
+<h1 class="text-2xl font-bold">CSE Hub</h1>
+<div class="space-x-4 hidden md:block">
+<a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#chatbot">AI Mentor</a>
+</div>
+<button class="bg-white text-blue-700 px-4 py-2 rounded-xl">Free Access</button>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="gradient text-white text-center py-20 px-6">
+<h2 class="text-5xl font-bold">Your Career Starts Here 🚀</h2>
+<p class="mt-4 text-xl">Internships • Coding • Resume • AI Mentor • Jobs</p>
+<button class="mt-8 bg-white text-purple-700 px-6 py-3 rounded-2xl font-bold">Join Free</button>
+</section>
+
+<!-- Features -->
+<section id="features" class="py-16 px-6 max-w-6xl mx-auto">
+<h3 class="text-4xl font-bold text-center mb-10">Features</h3>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow">💼 Internship Listings</div>
+<div class="bg-white p-6 rounded-2xl shadow">💻 Coding Practice</div>
+<div class="bg-white p-6 rounded-2xl shadow">📄 Resume Builder</div>
+<div class="bg-white p-6 rounded-2xl shadow">🤖 AI Dummy Mentor</div>
+<div class="bg-white p-6 rounded-2xl shadow">🏆 Hackathons</div>
+<div class="bg-white p-6 rounded-2xl shadow">📜 Certificates</div>
+</div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard" class="bg-white py-16 px-6">
+<h3 class="text-4xl font-bold text-center mb-10">Student Dashboard</h3>
+<div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+<div class="p-6 rounded-2xl shadow bg-blue-50">Applied Jobs: 12</div>
+<div class="p-6 rounded-2xl shadow bg-purple-50">Certificates: 6</div>
+<div class="p-6 rounded-2xl shadow bg-green-50">Coding Score: 340</div>
+<div class="p-6 rounded-2xl shadow bg-pink-50">Profile Rank: #24</div>
+</div>
+</section>
+
+<!-- AI Chatbot -->
+<section id="chatbot" class="py-16 px-6 max-w-4xl mx-auto">
+<h3 class="text-4xl font-bold text-center mb-10">Free AI Mentor 🤖</h3>
+<div class="bg-white rounded-2xl shadow p-6">
+<div id="chatBox" class="h-72 overflow-y-auto border rounded-xl p-4 mb-4 bg-gray-50"></div>
+<div class="flex gap-3">
+<input id="userInput" class="border p-3 rounded-xl w-full" placeholder="Ask about coding, internships...">
+<button onclick="sendMsg()" class="gradient text-white px-6 rounded-xl">Send</button>
+</div>
+</div>
+</section>
+
+<!-- Login -->
+<section class="bg-white py-16 px-6">
+<h3 class="text-4xl font-bold text-center mb-10">Login / Signup</h3>
+<div class="max-w-md mx-auto bg-gray-50 p-6 rounded-2xl shadow">
+<input class="border p-3 w-full rounded-xl mb-4" placeholder="Email">
+<input type="password" class="border p-3 w-full rounded-xl mb-4" placeholder="Password">
+<button class="gradient text-white w-full py-3 rounded-xl">Continue</button>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="gradient text-white text-center py-8 mt-10">
+<p>© 2026 CSE Hub • Free For Students</p>
+</footer>
+
+<script>
+function sendMsg(){
+let input=document.getElementById("userInput");
+let chat=document.getElementById("chatBox");
+let msg=input.value.trim();
+if(!msg)return;
+
+chat.innerHTML += "<div class='mb-2'><b>You:</b> "+msg+"</div>";
+
+let reply="Keep learning daily 🚀";
+msg=msg.toLowerCase();
+
+if(msg.includes("internship")) reply="Build projects + apply daily on LinkedIn.";
+if(msg.includes("coding")) reply="Start DSA + Java/Python + practice daily.";
+if(msg.includes("resume")) reply="Keep 1 page, projects + skills strong.";
+if(msg.includes("job")) reply="Apply consistently + prepare aptitude + DSA.";
+if(msg.includes("hackathon")) reply="Join team events and build practical apps.";
+
+chat.innerHTML += "<div class='mb-2 text-blue-700'><b>AI Mentor:</b> "+reply+"</div>";
+chat.scrollTop=chat.scrollHeight;
+input.value="";
+}
+</script>
+
+</body>
+</html>
